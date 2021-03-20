@@ -2,8 +2,7 @@ import ApiImages from "./apiService.js";
 import imgCard from "../templates/template.hbs";
 import LoadMoreBtn from "../load-more.js";
 import { onOpenModal } from "./modal.js";
-import 'basiclightbox/dist/basiclightbox.min.css' 
-
+import "core-js";
 
 const refs = {
   search: document.querySelector("#search-form"),
@@ -47,12 +46,9 @@ async function fetchHits() {
     const response = await apiImages.fetchImages();
     if (response.length === 0) {
       noPicturesAtAll();
-      animateScrollTo(0, options);
     } else if (response.length > 0) {
-      imagesMurkup(response);
-
+      imagesMarkup(response);
       loadMoreBtn.enable();
-      animateScroll();
     }
 
     if (response.length < 12) {
@@ -63,7 +59,7 @@ async function fetchHits() {
   }
 }
 
-function imagesMurkup(hits) {
+function imagesMarkup(hits) {
   refs.cardContainer.insertAdjacentHTML("beforeend", imgCard(hits));
 }
 

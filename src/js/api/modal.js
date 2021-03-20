@@ -1,16 +1,12 @@
-import * as basicLightbox from "basiclightbox";
-import "basiclightbox/dist/basiclightbox.min.css";
+import * as basicLightbox from 'basiclightbox';
+import 'basiclightbox/dist/basicLightbox.min.css';
+import '../templates/template.hbs'
 
 function onOpenModal(event) {
-  if (event.target.nodeName !== "IMG") {
-    return;
-  }
-  const { target } = event;
-if(target.dataset.largeImage)
   event.preventDefault();
-  const imageToShow = `<img src="${event.target.dataset.source}" width="800" height="600">`;
-  const instance = basicLightbox.create(imageToShow);
+  const instance = basicLightbox.create(`
+  <img src="${event.target.dataset.source}" width="800" height="600">
+`);
   instance.show();
 }
-
 export { onOpenModal };

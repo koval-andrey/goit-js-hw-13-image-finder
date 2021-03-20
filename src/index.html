@@ -11,6 +11,7 @@
 </head>
 <body>
   <form class="search-form" id="search-form">
+    <label for="searchQuery" class="sr-only">What are you looking for?</label>
     <input
       type="text"
       class="form-control"
@@ -19,10 +20,11 @@
       autocomplete="off"
       placeholder="Search images..."
     />
+    <button type="submit" class="btn btn-primary mb-2">Search</button>
   </form>
-    <button type="button" class="btn btn-primary button" data-action="load-more">
-             <span class="label">Show more</span>
-    </button>
     <ul class="gallery card-container"></ul>
+    <button type="button" class="btn btn-primary button" data-action="load-more">
+      <span class="label">Show more</span>
+</button>
 </body>
 </html>
